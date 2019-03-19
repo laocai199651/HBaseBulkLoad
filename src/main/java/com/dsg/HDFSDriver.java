@@ -53,14 +53,14 @@ public class HDFSDriver extends Configuration implements Tool {
     public static void main(String[] args) throws Exception {
         Configuration configuration = HBaseConfiguration.create();
         //配置zk主机
-        configuration.set(HConstants.ZOOKEEPER_QUORUM, "master.hdp01.com");
+        configuration.set(HConstants.ZOOKEEPER_QUORUM, "hadoop101");
         configuration.set(HConstants.ZOOKEEPER_CLIENT_PORT, "2181");
         //坑
-        configuration.set(HConstants.ZOOKEEPER_ZNODE_PARENT, "/hbase-unsecure");
+        //configuration.set(HConstants.ZOOKEEPER_ZNODE_PARENT, "/hbase-unsecure");
         System.out.println("cwklog:================ HConstants.ZOOKEEPER_QUORUM   "+configuration.get(HConstants.ZOOKEEPER_QUORUM));
         System.out.println("cwklog:================ HConstants.ZOOKEEPER_ZNODE_PARENT   "+configuration.get(HConstants.ZOOKEEPER_ZNODE_PARENT));
         int i = ToolRunner.run(configuration, new HDFSDriver(), args);
-        //System.exit(i);
+        System.exit(i);
     }
 
 
